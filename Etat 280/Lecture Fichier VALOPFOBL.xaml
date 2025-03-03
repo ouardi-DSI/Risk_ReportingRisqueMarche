@@ -126,8 +126,8 @@
         <InArgument x:TypeArguments="x:String" x:Key="in_DataBase_Table">[in_Table_VALOBTBKT]</InArgument>
         <InArgument x:TypeArguments="ui:DatabaseConnection" x:Key="in_Connexion">[in_Connexion]</InArgument>
         <InArgument x:TypeArguments="x:String" x:Key="in_Etat">[in_Etat]</InArgument>
-        <InArgument x:TypeArguments="x:String" x:Key="io_StepWorkflow">[io_StepWorkflow]</InArgument>
-        <InArgument x:TypeArguments="sd:DataTable" x:Key="out_DT">[out_DT_Valopfobl]</InArgument>
+        <InOutArgument x:TypeArguments="x:String" x:Key="io_StepWorkflow">[io_StepWorkflow]</InOutArgument>
+        <OutArgument x:TypeArguments="sd:DataTable" x:Key="out_DT">[out_DT_Valopfobl]</OutArgument>
       </ui:InvokeWorkflowFile.Arguments>
     </ui:InvokeWorkflowFile>
     <ui:CommentOut DisplayName="Comment Out" sap:VirtualizedContainerService.HintSize="434,57" sap2010:WorkflowViewState.IdRef="CommentOut_1">
