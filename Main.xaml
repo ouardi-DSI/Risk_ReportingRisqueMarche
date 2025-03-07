@@ -248,9 +248,9 @@
             </scg:Dictionary>
           </sap:WorkflowViewStateService.ViewState>
           <Transition.To>
-            <State x:Name="__ReferenceID2" sap2010:Annotation.AnnotationText="Process a single transaction. &#xA;The result of the processing can be: 1) Success, 2) Business Exception, 3) System Exception. &#xA;In the case of a system exception, the transaction can be automatically retried." DisplayName="Process Transaction" sap:VirtualizedContainerService.HintSize="516,2033" sap2010:WorkflowViewState.IdRef="State_3">
+            <State x:Name="__ReferenceID2" sap2010:Annotation.AnnotationText="Process a single transaction. &#xA;The result of the processing can be: 1) Success, 2) Business Exception, 3) System Exception. &#xA;In the case of a system exception, the transaction can be automatically retried." DisplayName="Process Transaction" sap:VirtualizedContainerService.HintSize="516,2482" sap2010:WorkflowViewState.IdRef="State_3">
               <State.Entry>
-                <TryCatch DisplayName="Try to process transaction" sap:VirtualizedContainerService.HintSize="470,1546" sap2010:WorkflowViewState.IdRef="TryCatch_9">
+                <TryCatch DisplayName="Try to process transaction" sap:VirtualizedContainerService.HintSize="470,1995" sap2010:WorkflowViewState.IdRef="TryCatch_9">
                   <sap:WorkflowViewStateService.ViewState>
                     <scg:Dictionary x:TypeArguments="x:String, x:Object">
                       <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -414,7 +414,7 @@
                         <ActivityAction.Argument>
                           <DelegateInArgument x:TypeArguments="ui:BusinessRuleException" Name="Exception" />
                         </ActivityAction.Argument>
-                        <Sequence DisplayName="Handle Business Exception" sap:VirtualizedContainerService.HintSize="468,279" sap2010:WorkflowViewState.IdRef="Sequence_29">
+                        <Sequence DisplayName="Handle Business Exception" sap:VirtualizedContainerService.HintSize="468,728" sap2010:WorkflowViewState.IdRef="Sequence_29">
                           <sap:WorkflowViewStateService.ViewState>
                             <scg:Dictionary x:TypeArguments="x:String, x:Object">
                               <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -478,10 +478,10 @@
                               </Sequence>
                             </TryCatch.Finally>
                           </TryCatch>
-                          <If Condition="[Exception.message.Contains(&quot;Traitement incomplet&quot;)]" sap:VirtualizedContainerService.HintSize="434,48" sap2010:WorkflowViewState.IdRef="If_15">
+                          <If Condition="[Exception.message.Contains(&quot;Traitement incomplet&quot;)]" sap:VirtualizedContainerService.HintSize="434,497" sap2010:WorkflowViewState.IdRef="If_15">
                             <sap:WorkflowViewStateService.ViewState>
                               <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                                <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                                <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                                 <x:Boolean x:Key="IsPinned">False</x:Boolean>
                               </scg:Dictionary>
                             </sap:WorkflowViewStateService.ViewState>
@@ -520,6 +520,7 @@
                                     <InArgument x:TypeArguments="x:String" x:Key="Chemin_Futures">[TransactionItem.SpecificContent("Chemin_Futures").ToString]</InArgument>
                                     <InArgument x:TypeArguments="x:String" x:Key="Chemin_Actions">[TransactionItem.SpecificContent("Chemin_Actions").ToString]</InArgument>
                                     <InArgument x:TypeArguments="x:String" x:Key="Chemin_HistVAR">[TransactionItem.SpecificContent("Chemin_HistVAR").ToString]</InArgument>
+                                    <InArgument x:TypeArguments="x:String" x:Key="Chemin_OPCVM_OFFSHORE">[TransactionItem.SpecificContent("Chemin_OPCVM_OFFSHORE").ToString]</InArgument>
                                   </ui:AddQueueItem.ItemInformation>
                                   <sap:WorkflowViewStateService.ViewState>
                                     <scg:Dictionary x:TypeArguments="x:String, x:Object">
@@ -962,9 +963,7 @@
                   <Transition.To>
                     <x:Reference>__ReferenceID0</x:Reference>
                   </Transition.To>
-                  <Transition.Condition>
-                    <VisualBasicValue x:TypeArguments="x:Boolean" DisplayName="Visual basic value" ExpressionText="BusinessException IsNot Nothing" />
-                  </Transition.Condition>
+                  <Transition.Condition>[BusinessException IsNot Nothing]</Transition.Condition>
                 </Transition>
                 <Transition sap2010:Annotation.AnnotationText="There is no need for any action in case of successful transaction.&#xA;The process should simply go to next transaction." DisplayName="Success" sap:VirtualizedContainerService.HintSize="639,530" sap2010:WorkflowViewState.IdRef="Transition_5">
                   <sap:WorkflowViewStateService.ViewState>
